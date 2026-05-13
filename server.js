@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3001;
 app.use(cors({ origin: "*", methods: ["POST", "GET"] }));
 app.use(express.json({ limit: "16kb" }));
 
-app.get("/", (_, res) => res.json({ status: "ok", message: "Noyz Agent backend online ✅" }));
+app.get("/", (_, res) => res.json({ status: "ok", message: "ND5 Agent backend online ✅" }));
 app.get("/health", (_, res) => res.json({ status: "ok" }));
 
 app.post("/chat", (req, res) => {
@@ -21,7 +21,7 @@ app.post("/chat", (req, res) => {
 
   const payload = JSON.stringify({
     model: model || "gpt-4o-mini",
-    messages: [{ role: "system", content: systemPrompt || "Tu es un assistant." }, ...messages],
+    messages: [{ role: "system", content: systemPrompt || "Tu es l'assistant IA de ND5 Estate." }, ...messages],
     temperature: temperature || 0.4,
     max_tokens: maxTokens || 600,
   });
@@ -56,4 +56,4 @@ app.post("/chat", (req, res) => {
   apiReq.end();
 });
 
-app.listen(PORT, "0.0.0.0", () => console.log(`✅ Backend démarré sur port ${PORT}`));
+app.listen(PORT, "0.0.0.0", () => console.log(`✅ Backend ND5 démarré sur port ${PORT}`));
